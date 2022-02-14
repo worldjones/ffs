@@ -1,0 +1,36 @@
+@page
+@using Ffs.Models
+
+<h2 class="content-block">Home</h2>
+
+
+
+
+@(Html.DevExtreme().DataGrid<Ffs.Models.EF.TableXd>()
+    .DataSource(ds => ds.Mvc()
+        .Controller("TableXds")
+        .LoadAction("Get")
+    //    .LoadParams(new { key_Id = new JS("data.KeyId")})
+        .Key("KeyId")
+    )
+    .RemoteOperations(true)
+    .Columns(columns => {
+
+        columns.AddFor(m => m.KeyId);
+
+        columns.AddFor(m => m.TableId);
+
+        columns.AddFor(m => m.RowId);
+
+        columns.AddFor(m => m.TestInput);
+
+        columns.AddFor(m => m.AcceptanceCriteria);
+    })
+
+    .Paging(p => p.PageSize(10))
+    .Pager(p => p
+        .ShowPageSizeSelector(true)
+        .AllowedPageSizes(new[] { 5, 10, 20})
+        .ShowInfo(true)
+    )
+)
