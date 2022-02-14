@@ -3,6 +3,8 @@
   <PropertyGroup>
     <DevExtremeCreateAsPartial>False</DevExtremeCreateAsPartial>
     <DevExtremeUseLayout>True</DevExtremeUseLayout>
-    <DevExtremeSelectedDataContextName>ExcelContext %28Ffs.Models.EF%29</DevExtremeSelectedDataContextName>
+    <DevExtremeSelectedDataContextName>ExcelContext %28Ffs.Models%29</DevExtremeSelectedDataContextName>
+    <_SelectedScaffolderID>DevExtremeApiControllerWithActionsScaffolder_v21.2</_SelectedScaffolderID>
+    <_SelectedScaffolderCategoryPath>root/DevExtreme</_SelectedScaffolderCategoryPath>
   </PropertyGroup>
 </Project>

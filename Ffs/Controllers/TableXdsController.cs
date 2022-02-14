@@ -24,14 +24,16 @@ namespace Ffs.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(DataSourceLoadOptions loadOptions) {
+        public async Task<object> Get(DataSourceLoadOptions loadOptions) {
             var tablexds = _context.TableXds.Select(i => new {
                 i.KeyId,
                 i.TableId,
                 i.RowId,
                 i.TestInput,
                 i.AcceptanceCriteria
-            });
+            }).ToList(); 
+
+
 
             // If underlying data is a large SQL table, specify PrimaryKey and PaginateViaPrimaryKey.
             // This can make SQL execution plans more efficient.
@@ -39,8 +41,10 @@ namespace Ffs.Controllers
             // loadOptions.PrimaryKey = new[] { "KeyId" };
             // loadOptions.PaginateViaPrimaryKey = true;
 
-            return Json(await DataSourceLoader.LoadAsync(tablexds, loadOptions));
+            return Json(DataSourceLoader.Load(tablexds, loadOptions));
         }
+
+      
 
         [HttpPost]
         public async Task<IActionResult> Post(string values) {

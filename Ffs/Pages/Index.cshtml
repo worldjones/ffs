@@ -32,5 +32,24 @@
         .ShowPageSizeSelector(true)
         .AllowedPageSizes(new[] { 5, 10, 20})
         .ShowInfo(true)
+
+        )
     )
-)
+
+ @*@(html.devextreme().datagrid<ffs.models.test>()
+    .datasource(ds => ds.mvc()
+        .controller("tests")
+        .loadaction("get")
+        .key("id")
+    )
+    .remoteoperations(true)
+    .columns(columns => {
+
+        columns.addfor(m => m.id);
+
+       columns.addfor(m => m.test1);
+
+        columns.addfor(m => m.yea);
+    })*@
+
+
